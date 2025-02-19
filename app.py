@@ -10,8 +10,9 @@ def get_mp3_from_youtube(url, mp3_filename_base):
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
-            'preferredquality': '0',  # 원본 비트레이트 유지
+            'preferredquality': '0',
         }],
+        'cookiesfrombrowser': ('chrome',),  # Chrome 브라우저의 쿠키 자동 가져오기
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
