@@ -10,9 +10,9 @@ def get_mp3_from_youtube(url, mp3_filename_base):
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
-            'preferredquality': '0',
+            'preferredquality': '192',
         }],
-        'cookiesfrombrowser': ('chrome',),  # Chrome 브라우저의 쿠키 자동 가져오기
+        'cookiefile': 'cookies.txt'  # 유튜브 로그인 쿠키 사용
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -48,4 +48,3 @@ if st.button("다운로드 시작"):
             st.error("❌ 다운로드 실패! 유효한 유튜브 링크인지 확인하세요.")
     else:
         st.warning("⚠️ 유튜브 링크를 입력하세요.")
-
